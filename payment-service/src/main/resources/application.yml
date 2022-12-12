@@ -9,4 +9,4 @@ spring:
   application:
     name: payment-service
 logging:
-  file: ./microservice.log
+  file: .C:/Users/mszga/IdeaProjects/NewMicroservice/order-service/src/main/resources/microservice.log

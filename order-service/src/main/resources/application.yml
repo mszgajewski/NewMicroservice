@@ -9,4 +9,4 @@ spring:
   application:
     name: order-service
 logging:
-  file: ./microservice.log
+  file: .\order-service\src\main\resources\microservice.log
