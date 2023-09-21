@@ -13,7 +13,6 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Table(name = "ORDER_TB")
 public class Order {
-
     @Id
     private int id;
     private String name;

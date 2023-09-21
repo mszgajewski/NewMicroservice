@@ -2,13 +2,16 @@ package com.mszgajewski.orderservice.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.mszgajewski.orderservice.common.Payment;
 import com.mszgajewski.orderservice.common.TransactionRequest;
 import com.mszgajewski.orderservice.common.TransactionResponse;
 import com.mszgajewski.orderservice.entity.Order;
 import com.mszgajewski.orderservice.repository.OrderRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -32,9 +35,7 @@ public class OrderService {
      Logger logger = LoggerFactory.getLogger(OrderService.class);
 
     public TransactionResponse saveOrder(TransactionRequest request) throws JsonProcessingException {
-
         String response= "";
-
         Order order = request.getOrder();
         Payment payment = request.getPayment();
         payment.setOrderId(order.getId());
