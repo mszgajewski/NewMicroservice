@@ -22,7 +22,6 @@ import org.springframework.web.client.RestTemplate;
 @Service
 @RefreshScope
 public class OrderService {
-
     @Autowired
     private OrderRepository orderRepository;
     @Autowired
