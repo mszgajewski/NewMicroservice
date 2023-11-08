@@ -34,15 +34,15 @@ public class OrderService {
      Logger logger = LoggerFactory.getLogger(OrderService.class);
 
     public TransactionResponse saveOrder(TransactionRequest request) throws JsonProcessingException {
-        String response= "";
+        String response = "";
         Order order = request.getOrder();
         Payment payment = request.getPayment();
         payment.setOrderId(order.getId());
         payment.setAmount(order.getPrice());
         logger.info("OrderService request :" + new ObjectMapper().writeValueAsString(request));
 
-        Payment paymentResponse = restTemplate.postForObject(ENDPOINT_URL,payment, Payment.class);
-        response = paymentResponse.getPaymentStatus().equals("success")? "płatność zrealizowana":"błąd płatności";
+        Payment paymentResponse = restTemplate.postForObject(ENDPOINT_URL, payment, Payment.class);
+        response = paymentResponse.getPaymentStatus().equals("success")? "płatność zrealizowana" : "błąd płatności";
         logger.info("PaymentService response from OrderService Rest call : "+ new ObjectMapper().writeValueAsString(response));
 
         orderRepository.save(order);
