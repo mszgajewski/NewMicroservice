@@ -43,7 +43,7 @@ public class OrderService {
 
         Payment paymentResponse = restTemplate.postForObject(ENDPOINT_URL, payment, Payment.class);
         response = paymentResponse.getPaymentStatus().equals("success")? "płatność zrealizowana" : "błąd płatności";
-        logger.info("PaymentService response from OrderService Rest call : "+ new ObjectMapper().writeValueAsString(response));
+        logger.info("PaymentService response from OrderService Rest call : " + new ObjectMapper().writeValueAsString(response));
 
         orderRepository.save(order);
         return new TransactionResponse(order, paymentResponse.getAmount(), paymentResponse.getTransactionId(), response);
